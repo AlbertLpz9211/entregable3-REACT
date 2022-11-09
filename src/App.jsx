@@ -7,6 +7,7 @@ import ResidentsTarjet from "./components/ResidentsTarjet";
 
 function App() {
   const [location, setLocation] = useState({});
+  const [selectedId, setSelectedId]= useState("");
 
   useEffect(() => {
     const randomId = Math.floor(Math.random() * 126) + 1;
@@ -16,21 +17,23 @@ function App() {
   }, []);
 
   const seachLocation = () => {
-    axios.get();
+    axios
+    .get(`https://rickandmortyapi.com/api/location/${selectedId}`)
+    .then((res)=> setLocation(res.data));
   };
 
   //console.log(location);
 
   return (
     <div className="App">
-      <input type="text" name="" id="" placeholder="type a location ID" />
-      <button>Search</button>
+      <input type="text" placeholder="type a location ID" onChange={(event)=> setSelectedId(event.target.value)} value={selectedId} />
+      <button onClick={seachLocation}>Search</button>
       <ul className="container">
-      <h1>{location.name}</h1>
-      <h2>type: {location.type}</h2>
-      <h2>Dimension: {location.dimension}</h2>
-      <h2>Population: PENDIENTEEEEE!!!</h2>
-      <hr />
+        <h1>{location.name}</h1>
+        <h2>type: {location.type}</h2>
+        <h2>Dimension: {location.dimension}</h2>
+        <h2>Population: PENDIENTEEEEE!!!</h2>
+        <hr />
         {location.residents?.map((charters) => (
           <ResidentsTarjet urlCharter={charters} key={charters} />
         ))}
