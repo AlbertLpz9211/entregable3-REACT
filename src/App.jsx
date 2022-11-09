@@ -25,9 +25,8 @@ function App() {
     <div className="App">
       <input type="text" name="" id="" placeholder="type a location ID" />
       <button>Search</button>
-
       {location.residents?.map(charters => (console.log(charters)))}
-      <ResidentsTarjet />
+      
     </div>
   );
 }
