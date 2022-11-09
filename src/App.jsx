@@ -25,8 +25,16 @@ function App() {
     <div className="App">
       <input type="text" name="" id="" placeholder="type a location ID" />
       <button>Search</button>
-      {location.residents?.map(charters => (console.log(charters)))}
-      
+      <ul className="container">
+      <h1>{location.name}</h1>
+      <h2>type: {location.type}</h2>
+      <h2>Dimension: {location.dimension}</h2>
+      <h2>Population: PENDIENTEEEEE!!!</h2>
+      <hr />
+        {location.residents?.map((charters) => (
+          <ResidentsTarjet urlCharter={charters} key={charters} />
+        ))}
+      </ul>
     </div>
   );
 }
