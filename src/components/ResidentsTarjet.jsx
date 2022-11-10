@@ -13,13 +13,16 @@ const ResidentsTarjet = ({ urlCharter }) => {
 
   console.log(character);
   return (
-    <div className="charactersTarjets">
-      <h2>{character?.name}</h2>
-      <img src={character.image} alt="" />
-      <h3>Raza: {character.species}</h3>
-      <h3>Tipo: {character.type}</h3>
-      <h3>Origen: {character.origin?.name}</h3>
-    </div>
+    <li className="character-item">
+      <div className="character-card">
+        <h2>{character?.name}</h2>
+        <img src={character.image} alt="" />
+        <h3>Raza: {character.species}</h3>
+        <h3>Tipo: {character.type}</h3>
+        <h3>Origen: {character.origin?.name}</h3>
+        <h3>Episodios en los que aparece: {character.episode?.length}</h3>
+      </div>
+    </li>
   );
 };
 
